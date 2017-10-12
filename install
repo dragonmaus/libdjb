@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+# install header files
+mkdir -p "$HOME"/inc
+cp -f *.h "$HOME"/inc
+
+# install object archive
+"${0%/*}"/compile *.c
+"${0%/*}"/makelib libdjb.a *.o
+mkdir -p "$HOME"/lib
+cp -f *.a "$HOME"/lib
